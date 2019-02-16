@@ -1,12 +1,11 @@
 package com.wei.painting.view
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
+import android.graphics.*
 import android.util.AttributeSet
+import android.view.MotionEvent
 import android.widget.ImageView
+import com.wei.painting.R
 
 /**
  *
@@ -18,10 +17,14 @@ class PaintView @JvmOverloads constructor(
 ) : ImageView(context, attrs, defStyleAttr) {
 
     private var paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.DITHER_FLAG)
+    private var path = Path()
     private lateinit var bufferBitmap: Bitmap
     private lateinit var bufferCanvas: Canvas
+    private var lastX = 0.0f
+    private var lastY = 0.0f
 
     init {
+        setBackgroundResource(R.drawable.ic_paint_bg)
         initPaint()
     }
 
@@ -31,10 +34,38 @@ class PaintView @JvmOverloads constructor(
         bufferCanvas = Canvas(bufferBitmap)
     }
 
+    override fun onDraw(canvas: Canvas?) {
+        super.onDraw(canvas)
+        canvas?.drawBitmap(bufferBitmap, 0f, 0f, null)
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        event?.let {
+            when (event.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    lastX = event.x
+                    lastY = event.y
+
+                    path.moveTo(lastX, lastY)
+                }
+
+                MotionEvent.ACTION_MOVE -> {
+                    path.quadTo(lastX, lastY, event.x, event.y)
+                }
+
+                MotionEvent.ACTION_UP -> {
+
+                }
+            }
+        }
+        return true
+    }
+
     private fun initPaint() {
         paint.style = Paint.Style.STROKE
         paint.color = Color.RED
-        paint.strokeCap = Paint.Cap.ROUND // 笔触为圆形
+        paint.strokeJoin = Paint.Join.ROUND // 使画笔更加圆润
+        paint.strokeCap = Paint.Cap.ROUND // 同上
         paint.strokeWidth = 10f
     }
 
