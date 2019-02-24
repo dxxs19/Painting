@@ -20,7 +20,8 @@
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
-                android:text="撤回"/>
+                android:onClick="setPenModel"
+                android:text="画笔"/>
 
         <TextView
                 android:layout_width="0dp"
@@ -28,11 +29,22 @@
                 android:layout_weight="1"
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
-                android:text="画笔"/>
+                android:onClick="setEraseModel"
+                android:text="橡皮擦"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:onClick="clearCanvas"
+                android:text="清空"/>
 
     </LinearLayout>
 
     <com.wei.painting.view.PaintView
+            android:id="@+id/view_paint"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@id/options_layout"/>
