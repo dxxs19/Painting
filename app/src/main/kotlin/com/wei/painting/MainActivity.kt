@@ -12,10 +12,6 @@ class MainActivity : BaseActivity() {
         return dataBinding
     }
 
-    override fun initView() {
-
-    }
-
     fun paint() {
         startActivity(Intent(context, PaintActivity::class.java))
     }

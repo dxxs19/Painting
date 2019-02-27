@@ -5,7 +5,7 @@ import com.wei.libbase.BaseActivity
 import com.wei.painting.view.PaintView
 
 /**
- * 画板
+ * 画板 - 负责所有绘画相关操作
  * @author XiangWei
  * @since 2019/2/26
  */
@@ -19,7 +19,7 @@ class PaintActivity : BaseActivity() {
         return dataBinding
     }
 
-    override fun initView() {
+    override fun initViews() {
         paintView = findViewById(R.id.view_paint)
     }
 
