@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable name="owner" type="com.wei.painting.PaintActivity"/>
+    </data>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RadioGroup
+                android:id="@+id/options_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true">
+
+            <RadioButton
+                    style="@style/RdoBtnTheme"
+                    android:onClick="@{() ->owner.setPenModel()}"
+                    android:text="画笔"/>
+
+            <RadioButton
+                    style="@style/RdoBtnTheme"
+                    android:onClick="@{() ->owner.setEraseModel()}"
+                    android:text="橡皮擦"/>
+
+            <RadioButton
+                    style="@style/RdoBtnTheme"
+                    android:onClick="@{() ->owner.clearCanvas()}"
+                    android:text="清空"/>
+
+        </RadioGroup>
+
+        <com.wei.painting.view.PaintView
+                android:id="@+id/view_paint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/options_layout"/>
+
+    </RelativeLayout>
+</layout>

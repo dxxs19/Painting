@@ -6,11 +6,9 @@ import android.support.annotation.IntDef
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import android.widget.ImageView
-import com.wei.painting.R
 
 /**
- *
+ * 自定义画板
  * @author XiangWei
  * @since 2019/2/16
  */

@@ -1,35 +1,23 @@
 package com.wei.painting
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import android.view.View
-import com.wei.painting.view.PaintView
+import android.content.Intent
+import android.databinding.ViewDataBinding
+import com.wei.libbase.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
-    private var paintView: PaintView?= null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        initViews()
+    override fun createDataBinding(): ViewDataBinding {
+        val dataBinding = com.wei.painting.databinding.ActivityMainBinding.inflate(layoutInflater)
+        dataBinding.owner = this
+        return dataBinding
     }
 
-    private fun initViews() {
-        paintView = findViewById(R.id.view_paint)
+    override fun initView() {
+
     }
 
-    fun setPenModel(view: View) {
-        paintView?.setModel(PaintView.EDIT_MODE_PEN)
-        paintView?.setPaintWidth(10f)
+    fun paint() {
+        startActivity(Intent(context, PaintActivity::class.java))
     }
 
-    fun setEraseModel(view: View) {
-        paintView?.setModel(PaintView.EDIT_MODE_ERASER)
-        paintView?.setPaintWidth(50f)
-    }
-
-    fun clearCanvas(view: View) {
-        paintView?.clear()
-    }
 }
