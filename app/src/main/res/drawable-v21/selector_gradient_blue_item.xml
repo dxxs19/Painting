@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 通用 -->
+    <item android:state_enabled="false">
+        <shape>
+            <!-- 按下状态的颜色 -->
+            <gradient android:angle="45"
+                      android:endColor="@color/color_4048ef"
+                      android:startColor="@color/color_5a7bef"/>
+            <corners android:radius="25dp"/>
+        </shape>
+    </item>
+
+    <item android:state_enabled="true">
+        <!-- 水波纹的颜色 -->
+        <ripple android:color="@color/color_0a95ff">
+            <item>
+                <shape>
+                    <!-- 正常状态的颜色 -->
+                    <gradient android:angle="45"
+                              android:endColor="@color/color_4048ef"
+                              android:startColor="@color/color_5a7bef"/>
+                    <corners android:radius="25dp"/>
+                </shape>
+            </item>
+        </ripple>
+    </item>
+
+</selector>

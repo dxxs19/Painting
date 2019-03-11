@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_enabled="false">
+        <shape>
+            <!-- 水波纹的颜色 -->
+            <gradient android:angle="45"
+                android:endColor="@color/color_4048ef"
+                android:startColor="@color/color_5a7bef"/>
+            <corners android:radius="25dp"/>
+        </shape>
+    </item>
+    <item android:state_enabled="true" android:state_pressed="true">
+        <shape>
+            <!-- 按下状态的颜色 -->
+            <solid android:color="@color/color_6ebfff"/>
+            <corners android:radius="25dp"/>
+        </shape>
+    </item>
+    <item android:state_enabled="true" android:state_pressed="false">
+        <shape>
+            <!-- 正常状态的颜色 -->
+            <gradient android:angle="45"
+                android:endColor="@color/color_4048ef"
+                android:startColor="@color/color_5a7bef"/>
+            <corners android:radius="25dp"/>
+        </shape>
+    </item>
+
+</selector>
