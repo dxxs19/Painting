@@ -1,10 +1,10 @@
 package com.wei.libbase
 
 import android.content.Context
-import android.databinding.ViewDataBinding
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.Window
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.ViewDataBinding
 
 /**
  *
@@ -13,12 +13,15 @@ import android.view.Window
  */
 abstract class SimpleActivity : AppCompatActivity() {
 
+    protected var TAG = ""
+
     val context: Context
         get() = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
 
+        TAG = javaClass.simpleName
         super.onCreate(savedInstanceState)
         val db = createDataBinding()
         setContentView(db.root)

@@ -1,6 +1,6 @@
 package com.wei.painting
 
-import android.databinding.ViewDataBinding
+import androidx.databinding.ViewDataBinding
 import com.wei.libbase.BaseActivity
 import com.wei.painting.view.PaintView
 

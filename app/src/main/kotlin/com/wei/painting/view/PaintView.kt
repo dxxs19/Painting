@@ -2,10 +2,10 @@ package com.wei.painting.view
 
 import android.content.Context
 import android.graphics.*
-import android.support.annotation.IntDef
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
+import androidx.annotation.IntDef
 
 /**
  * 自定义画板
@@ -17,7 +17,7 @@ class PaintView @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr) {
 
     companion object {
-        const val EDIT_MODE_PEN = 0x1      //画笔模式
+        const val EDIT_MODE_PEN = 0x1     //画笔模式
         const val EDIT_MODE_ERASER = 0x2    //橡皮擦模式
     }
     @Retention(AnnotationRetention.SOURCE)

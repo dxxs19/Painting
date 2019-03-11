@@ -10,6 +10,7 @@ android {
         targetSdkVersion versions.targetSdk
         versionCode versions.versionCode
         versionName versions.versionName
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -18,13 +19,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-    dataBinding {
-        enabled = true
-    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api project(':util')
+    api kotlinPlugin.runtime
+    api kotlinPlugin.reflect
+    api deps.androidx.appcompat
+    api deps.androidx.constraintLayout
+    api deps.androidx.dex
+}
+repositories {
+    mavenCentral()
 }
