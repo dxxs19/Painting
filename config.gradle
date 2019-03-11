@@ -7,13 +7,16 @@ ext.versions = [
         versionCode : 1,
         versionName : "1.0",
 
+        java          : JavaVersion.VERSION_1_8,
         androidPlugin : '3.3.0',
 
         compat        : '1.0.0',
         appcompat     : '1.1.0-alpha01',
+
+        glide: '4.9.0'
 ]
 
-ext.kotlin_version = '1.3.20'
+ext.kotlin_version = '1.3.21'
 
 ext.deps = [
         androidx: [
@@ -27,7 +30,13 @@ ext.deps = [
                 constraintLayout: "androidx.constraintlayout:constraintlayout:2.0.0-alpha2",
                 dex             : "androidx.multidex:multidex:2.0.0",
                 exifinterface   : "androidx.exifinterface:exifinterface:1.0.0", // 读取exif图片
-        ]
+        ],
+        glide: [
+                // github: https://github.com/bumptech/glide
+                runtime : "com.github.bumptech.glide:glide:$versions.glide",
+                okhttp3 : "com.github.bumptech.glide:okhttp-integration:$versions.glide",
+                compiler: "com.github.bumptech.glide:compiler:$versions.glide",
+        ],
 ]
 
 ext.support = [
@@ -36,6 +45,6 @@ ext.support = [
 ]
 
 ext.kotlinPlugin = [
-        runtime : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version",
+        runtime : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
         reflect : "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version",
 ]

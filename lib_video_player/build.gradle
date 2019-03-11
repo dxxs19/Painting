@@ -1,16 +1,21 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion versions.compileSdk
+
     defaultConfig {
-        applicationId "com.wei.painting"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode versions.versionCode
         versionName versions.versionName
     }
+
+    compileOptions {
+        sourceCompatibility versions.java
+        targetCompatibility versions.java
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -22,18 +27,11 @@ android {
         main.java.srcDirs += 'src/main/kotlin'
     }
 
-    dataBinding {
-        enabled = true
-    }
-
-    compileOptions {
-        sourceCompatibility versions.java
-        targetCompatibility versions.java
-    }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    api project(':baselib')
-    api project(':lib_video_player')
+    // github: https://github.com/lipangit/JiaoZiVideoPlayer
+    api 'cn.jzvd:jiaozivideoplayer:6.4.1'
+    implementation deps.glide.runtime
+    compileOnly kotlinPlugin.runtime
 }

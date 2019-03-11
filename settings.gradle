@@ -1,1 +1,1 @@
-include ':app', ':baselib',':util'
+include ':app', ':baselib',':util',':lib_video_player'

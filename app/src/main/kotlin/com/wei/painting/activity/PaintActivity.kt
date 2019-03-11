@@ -1,7 +1,9 @@
-package com.wei.painting
+package com.wei.painting.activity
 
 import androidx.databinding.ViewDataBinding
 import com.wei.libbase.BaseActivity
+import com.wei.painting.R
+import com.wei.painting.databinding.ActivityPaintingBinding
 import com.wei.painting.view.PaintView
 
 /**
@@ -14,7 +16,7 @@ class PaintActivity : BaseActivity() {
     private var paintView: PaintView?= null
 
     override fun createDataBinding(): ViewDataBinding {
-        val dataBinding = com.wei.painting.databinding.ActivityPaintingBinding.inflate(layoutInflater)
+        val dataBinding = ActivityPaintingBinding.inflate(layoutInflater)
         dataBinding.owner = this
         return dataBinding
     }
